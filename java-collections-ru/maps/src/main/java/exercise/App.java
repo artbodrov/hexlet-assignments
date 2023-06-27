@@ -27,7 +27,7 @@ public class App {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("{\n");
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            stringBuilder.append("  "+entry.getKey()+": "+entry.getValue()+"\n");
+            stringBuilder.append("  " + entry.getKey() + ": " + entry.getValue() + "\n");
 
         }
         stringBuilder.append("}");
