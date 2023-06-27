@@ -9,28 +9,39 @@ public class App {
         Map<String, Integer> map = new HashMap<>();
         String[] subStr;
         String delimeter = " ";
-        subStr = sentence.split(delimeter);
-
-        for (int i = 0; i < subStr.length; i++) {
-            int counter = 0;
-            for (int j = 0; j < subStr.length; j++) {
-                if (subStr[j].equals(subStr[i])) {
-                    counter++;
+        subStr = sentence.trim().split(delimeter);
+        if (sentence == "") {
+            map.clear();
+        } else {
+            for (int i = 0; i < subStr.length; i++) {
+                int counter = 0;
+                for (int j = 0; j < subStr.length; j++) {
+                    if (subStr[j].equals(subStr[i])) {
+                        counter++;
+                    }
+                    if (subStr[j].equals("")) {
+                        subStr[j] = "";
+                        counter--;
+                    }
                 }
+                map.put(subStr[i].trim(), counter);
             }
-            map.put(subStr[i], counter);
         }
         return map;
     }
 
     public static String toString(Map<String, Integer> map) {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("{");
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            stringBuilder.append("\n" + "  " + entry.getKey() + ": " + entry.getValue());
 
+        StringBuilder stringBuilder = new StringBuilder();
+        if (map.isEmpty()) {
+            stringBuilder.append("{}");
+        } else {
+            stringBuilder.append("{\n");
+            for (Map.Entry<String, Integer> entry : map.entrySet()) {
+                stringBuilder.append("  " + entry.getKey() + ": " + entry.getValue() + "\n");
+             }
+            stringBuilder.append("}");
         }
-        stringBuilder.append("}");
         String s = String.valueOf(stringBuilder);
 
         return s;
