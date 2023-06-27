@@ -25,9 +25,9 @@ public class App {
 
     public static String toString(Map<String, Integer> map) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("{\n");
+        stringBuilder.append("{");
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            stringBuilder.append("  " + entry.getKey() + ": " + entry.getValue() + "\n");
+            stringBuilder.append("\n" + "  " + entry.getKey() + ": " + entry.getValue());
 
         }
         stringBuilder.append("}");
