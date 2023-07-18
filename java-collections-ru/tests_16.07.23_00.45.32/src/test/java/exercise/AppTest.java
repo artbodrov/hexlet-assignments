@@ -11,9 +11,9 @@ class AppTest {
     @Test
     void testTake() {
         // BEGIN
-        List<Integer> lists1 = new ArrayList<>();
+        List<Integer> list1 = new ArrayList<>();
         List<Integer> expected1 = new ArrayList<>();
-        List<Integer> result1 = App.take(lists1, 3);
+        List<Integer> result1 = App.take(list1, 3);
         assertThat(result1).isEqualTo(expected1);
 
         List<Integer> list2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
